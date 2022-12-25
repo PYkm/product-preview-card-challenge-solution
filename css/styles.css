@@ -1,19 +1,6 @@
+/* General CSS rules for every viewport, including large desktop screens */
 html{
 	font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  /* Rules for tablets and bigger viewports */
-}
-
-@media (min-width: 992px) {
-  /* Rules for laptops, small desktop screens and bigger viewports */
-	
-}
-
-@media (min-width: 1200px) {
-  /* Rules for larger desktop screens only */
-
 }
 
 body{
@@ -26,37 +13,34 @@ body{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
+}
+
+main{
+	max-width: 94vw;
+	max-height: 94vh;
 }
 
 .product_card{
 	margin: auto;
-	max-width: 600px;
 	display: flex;
 	justify-content:center;
+	max-width: 600px;
 }
 
 .product_img{
 	display: flex;
-	flex-basis: 50%;
+	flex: 1 1 0;
 }
 
 .product_img img{
 	border-radius:1rem 0 0 1rem;
 }
 
-/* - Dark cyan: hsl(158, 36%, 37%)
-- Cream: hsl(30, 38%, 92%)
-
-### Neutral
-
-- Very dark blue: hsl(212, 21%, 14%)
-- Dark grayish blue: hsl(228, 12%, 48%)
-- White: hsl(0, 0%, 100%) */
-
 .product_detail{
 	background-color: hsl(0, 0%, 100%);
 	padding: 5%;
-	flex-basis: 50%;
+	flex: 1 1 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -115,9 +99,51 @@ button.add_to_cart::before{
 	margin-right: 0.5rem;
 }
 
-button.add_to_cart:hover{
+button.add_to_cart:hover,
+button.add_to_cart:focus
+{
 	background-color: hsl(158, 36%, 20%);
 }
 
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+  /* Rules for laptops, small desktop screens, and smaller viewports */
+@media (width <= 1199px) {
+	.product_card{
+		max-width: 600px;
+	}
+	.product_img img{
+		border-radius:1rem 0 0 1rem;
+	}
+	.product_detail{
+		border-radius:0 1rem 1rem 0;
+	}
+}
+
+  /* Rules for tablets and smaller viewports */
+@media (width <= 991px) {
+	.product_card{
+		max-width: 600px;
+	}
+	.product_img img{
+		border-radius:1rem 0 0 1rem;
+	}
+	.product_detail{
+		border-radius:0 1rem 1rem 0;
+	}
+}
+
+  /* Rules for smartphones only */
+@media (width <= 767px) {
+	.product_card{
+		flex-direction: column;
+	}
+	.product_img img{
+		border-radius:1rem 1rem 0 0;
+	}
+	.product_detail{
+		gap: .5rem;
+		border-radius: 0 0 1rem 1rem;
+	}
+}
