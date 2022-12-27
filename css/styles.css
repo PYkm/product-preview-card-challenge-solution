@@ -1,6 +1,6 @@
 /* General CSS rules for every viewport, including large desktop screens */
 html{
-	font-size: 14px;
+	font-size: 0.875em;
 }
 
 body{
@@ -9,7 +9,7 @@ body{
 	font-weight: 500;
 	color: hsl(228, 12%, 48%);
 	background-color: hsl(30, 38%, 92%);
-	height: 100vh;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -25,12 +25,15 @@ main{
 	margin: auto;
 	display: flex;
 	justify-content:center;
-	max-width: 600px;
+	max-width: 42.8em;
+}
+
+.product_card > *{
+	flex: 1 1 50%;
 }
 
 .product_img{
 	display: flex;
-	flex: 1 1 0;
 }
 
 .product_img img{
@@ -40,7 +43,6 @@ main{
 .product_detail{
 	background-color: hsl(0, 0%, 100%);
 	padding: 5%;
-	flex: 1 1 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -63,6 +65,10 @@ main{
 	color: hsl(212, 21%, 14%);
 }
 
+.product_detail p{
+	line-height: 1.5;
+}
+
 .product_prices{
 	display: flex;
 	align-items: center;
@@ -78,9 +84,28 @@ main{
 	color: hsl(158, 36%, 37%);
 }
 
-.product_prices .original_price{
+/* .product_prices .original_price{
 	text-decoration: line-through;
+} */
+
+del::before,
+del::after {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
+
+del::before {
+  content: " The previous price was ";
+}
+
+/* del::after {
+  content: " [deletion end] ";
+} */
 
 button.add_to_cart{
 	font: inherit;
@@ -109,7 +134,7 @@ button.add_to_cart:focus
 .attribution a { color: hsl(228, 45%, 44%); }
 
   /* Rules for laptops, small desktop screens, and smaller viewports */
-@media (width <= 1199px) {
+/* @media (width <= 1199px) {
 	.product_card{
 		max-width: 600px;
 	}
@@ -119,10 +144,10 @@ button.add_to_cart:focus
 	.product_detail{
 		border-radius:0 1rem 1rem 0;
 	}
-}
+} */
 
   /* Rules for tablets and smaller viewports */
-@media (width <= 991px) {
+/* @media (width <= 991px) {
 	.product_card{
 		max-width: 600px;
 	}
@@ -132,10 +157,10 @@ button.add_to_cart:focus
 	.product_detail{
 		border-radius:0 1rem 1rem 0;
 	}
-}
+} */
 
   /* Rules for smartphones only */
-@media (width <= 767px) {
+@media (max-width: 48em) {
 	.product_card{
 		flex-direction: column;
 	}

@@ -65,6 +65,37 @@ Use Flexible box layout to position infos in Details Panel on Desktop:
 }
 ```
 
+Added on Dec 27, 2022:
+
+Use del element to represents a range of text that has been deleted from a document:
+
+```html
+<del>$169.99</del>
+```
+
+**Never** use value with pixel unit on a font-size property inside the html root element, because this would cause the font size to display at a absolute size, no matter what the users might set in their browser setting.
+
+Never use this:
+```css
+html {
+  font-size: 14px;
+}
+```
+
+Use this instead:
+```css
+html {
+  font-size: 0.875em;
+}
+```
+
+Use min-height instead of height on the body element, so that body can grow vertically as much as it needs.
+```css
+body{
+	min-height: 100vh;
+}
+```
+
 ### Continued development
 
 Concepts that I'm not completely comfortable with, used in this challenge:
